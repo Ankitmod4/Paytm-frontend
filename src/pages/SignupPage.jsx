@@ -28,10 +28,10 @@ export function SignupPage(){
                 }} label={"Email"} placeholder={"Div1234@gmail.com"}></InputBox>
                 <InputBox onChange={e=>{
                     setPassword(e.target.value)
-                }} label={"Password"} placeholder={"r63r6383"}></InputBox>
+                }} label={"Password"} placeholder={"r63r6383"}></InputBox> 
                 <div className="pt-4">
                     <Button onClick={async ()=>{
-                        const response = await axios.post("http://127.0.0.1:3000/api/v1/user/Signup",{
+                        const response = await axios.post("https://paytm-project-backend.vercel.app/api/v1/user/Signup",{
                             username:username,
                             firstname:firstname,
                             lastname:lastname,

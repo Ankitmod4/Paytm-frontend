@@ -43,7 +43,7 @@ export const SendMoneyPage = () => {
                     </div>
                     <button onClick={() => {
                         console.log(localStorage.getItem("token"))
-                        axios.post("http://localhost:3000/api/v1/account/transaction", {
+                        axios.post("https://paytm-project-backend.vercel.app/api/v1/account/transaction", {
                             to: id,
                             amount
                         }, {
