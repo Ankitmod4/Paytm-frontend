@@ -30,15 +30,21 @@ export function SignupPage(){
                     setPassword(e.target.value)
                 }} label={"Password"} placeholder={"r63r6383"}></InputBox> 
                 <div className="pt-4">
-                    <Button onClick={async ()=>{
-                        const response = await axios.post("https://paytm-project-backend.vercel.app/api/v1/user/Signup",{
-                            username:username,
-                            firstname:firstname,
-                            lastname:lastname,
-                            password:password
-                        })
-                        localStorage.setItem("token",response.data.token)
-                    }} label={"Sign up"}></Button>
+                <Button onClick={async () => {
+    try {
+        const response = await axios.post("https://paytm-project-backend.vercel.app/api/v1/user/Signup", {
+            username: username,
+            firstname: firstname,
+            lastname: lastname,
+            password: password
+        });
+        console.log(username);
+        localStorage.setItem("token", response.data.token);
+    } catch (error) {
+        console.error("Signup failed:", error);
+        alert("Signup failed. Please try again.");
+    }
+}} label={"Sign up"}></Button>
                 </div>
                 <ButtonWarn label={"Already have an account?"} buttontext={"Signin"} to={"/signin"}></ButtonWarn>
             </div>
